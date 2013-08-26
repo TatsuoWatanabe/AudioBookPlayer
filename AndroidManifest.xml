@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.tatsuo.watanabe.audiobookplayer.MainActivity"
+            android:name="com.tatsuo.watanabe.audiobookplayer.AudioBookPlayerActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -13,7 +13,7 @@ import android.content.Intent
 import android.content.BroadcastReceiver
 import android.content.Context
 
-class MainActivity extends android.app.Activity /*with OnCompletionListener with SeekBar.OnSeekBarChangeListener */ {
+class AudioBookPlayerActivity extends android.app.Activity /*with OnCompletionListener with SeekBar.OnSeekBarChangeListener */ {
   override protected def onCreate(savedInstanceState: android.os.Bundle) {
     Log.d("Watch", "Watch -- onCreate!")
     super.onCreate(savedInstanceState)
