@@ -17,7 +17,7 @@ class AudioBookPlayerActivity extends android.app.Activity /*with OnCompletionLi
   override protected def onCreate(savedInstanceState: android.os.Bundle) {
     Log.d("Watch", "Watch -- onCreate!")
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
-    //setContentView(R.layout.player)
+    //setContentView(R.layout.activity_main)
+    setContentView(R.layout.player)
   }
 }
