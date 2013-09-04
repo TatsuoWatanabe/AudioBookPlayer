@@ -19,7 +19,7 @@ class AudioBookPlayerActivity extends android.app.Activity with OnCompletionList
 
   // TypedResource
   private object TR {
-    private def v[A](id: Int) = findViewById(id).asInstanceOf[A]
+    private def v[A <: View](id: Int) = findViewById(id).asInstanceOf[A]
     val btnPlay                   = v[ImageButton](R.id.btnPlay)
     val btnForward                = v[ImageButton](R.id.btnForward)
     val btnBackward               = v[ImageButton](R.id.btnBackward)
@@ -35,6 +35,7 @@ class AudioBookPlayerActivity extends android.app.Activity with OnCompletionList
   override protected def onCreate(savedInstanceState: android.os.Bundle) {
     Log.d("Watch", "Watch -- onCreate!")
     super.onCreate(savedInstanceState)
+    requestWindowFeature(android.view.Window.FEATURE_NO_TITLE)
     setContentView(R.layout.player)
 
     // Start listening for button presses
@@ -110,7 +111,7 @@ class AudioBookPlayerActivity extends android.app.Activity with OnCompletionList
     })
 
   } //end onCreate
-
+  
   /**
    * dispatchKeyEvent
    */
@@ -173,9 +174,10 @@ class AudioBookPlayerActivity extends android.app.Activity with OnCompletionList
   override def onStart {
     super.onStart
     Log.d("Watch", "Watch -- onStart!")
-    referPlayer
-    updateProgressBar
-
+    if(!Player.playList.isEmpty){
+      referPlayer
+      updateProgressBar
+    }
   }
 
   /**
@@ -246,7 +248,7 @@ class AudioBookPlayerActivity extends android.app.Activity with OnCompletionList
     TR.audioTotalDurationLabel.setText(Player.getTotalTimeString) //Displaying Total Duration time
     TR.btnPlay.setImageResource(if(Player.mp.isPlaying) R.drawable.btn_pause else R.drawable.btn_play) //Changing Button Image
     TR.audioProgressBar.setProgress(Player.getProgressPercentage) //set Progress bar values
-    TR.audioProgressBar.setMax(100)    //set Progress bar values
+    TR.audioProgressBar.setMax(100) //set Progress bar values
   }
 } //end AndroidBuildingMusicPlayerActivity
 
