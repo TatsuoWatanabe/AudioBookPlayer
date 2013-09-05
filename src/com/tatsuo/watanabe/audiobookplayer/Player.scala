@@ -19,7 +19,7 @@ object Player {
     case _ => mp.seekTo(0) //backward to starting position
   }
 
-  def togglePlaying() { if(mp.isPlaying) mp.pause else mp.start }
+  def togglePlaying()  { if(mp.isPlaying) mp.pause else mp.start }
   def setIndex(i: Int) { index = i; mp.reset; mp.setDataSource(playList.get(i).get("audioPath")); mp.prepare }
   def setRandomIndex() { setIndex((new scala.util.Random).nextInt(playList.size)) }
   def initialize() = setIndex(0)
